@@ -1,7 +1,9 @@
 require("dotenv").config();
+
+const express = require("express");
 const mongoose = require("mongoose");
 
-console.log("Using legacy URI:", process.env.MONGO_URI.startsWith("mongodb://"));
+const app = express();
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
@@ -10,3 +12,11 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((error) => {
         console.log("MongoDB connection failed:", error);
     });
+
+app.get("/", (req, res) => {
+    res.send("Simple Notes API is running");
+});
+
+app.listen(5000, () => {
+    console.log("Server running on port 5000");
+});

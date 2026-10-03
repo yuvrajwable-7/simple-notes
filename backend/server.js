@@ -32,6 +32,17 @@ app.post("/notes", async (req, res) => {
         res.status(500).json({ message: "Failed to create note" });
     }
 });
+
+app.get("/notes",async(req,res)=>{
+    try{
+        const notes = await Note.find();
+        res.json(notes);
+    }catch(error){
+        console.log("Get notes error:",error);
+        res.status(500).json({message:"Failed to get notes"});
+    }
+});
+
 app.listen(5000, () => {
     console.log("Server running on port 5000");
 });

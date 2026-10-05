@@ -43,6 +43,17 @@ app.get("/notes",async(req,res)=>{
     }
 });
 
+app.delete("/notes/:id",async(req,res)=>{
+    try{
+        await Note.findByIdAndDelete(req.params.id);
+
+        res.json({message:"note deleted successfully"});
+    }catch(error){
+        console.log("Delete note error",error);
+        res.status(500).json({message:"Failed to delete note"})
+    }
+})
+
 app.listen(5000, () => {
     console.log("Server running on port 5000");
 });

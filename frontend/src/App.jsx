@@ -15,6 +15,8 @@ function App(){
 
       console.log(response.data);
       
+      await getNotes();
+      
     }catch(error){
 
       console.log("Error Adding note",error);

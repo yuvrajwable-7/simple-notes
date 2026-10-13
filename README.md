@@ -45,5 +45,10 @@ A small full-stack Notes application built to practice the MERN stack.
 - Notes fetched using GET /notes API
 - Notes displayed dynamically using React state and map()
 - CORS configured for frontend-backend communication
-
+- Added automatic notes refresh after creating a note
+- Fetches the latest notes using `getNotes()`
+- Updates React state using `setNotes()`
+- Displays updated notes without refreshing the browser manually
+- Input fields clear after successfully adding a note
+- Notes list refreshes automatically after creation
 

@@ -14,8 +14,10 @@ function App(){
       });
 
       console.log(response.data);
-      
+
       await getNotes();
+      setTitle("");
+      setContent("");
       
     }catch(error){
 
